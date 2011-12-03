@@ -30,9 +30,6 @@
             var user_helps = [
             					{ "id" : "0", "type":"pomoc1"},
             				];
-            
-            var punkty = 
-            				
             				
             (function ($) {
 
@@ -124,34 +121,7 @@
                         this.length += this.v.length();
                         this.r *= 0.99;
                         this.v.rotate(Branch.random(-angle, angle)); //.mult(0.996);
-                        console.log("modify");
-                        ///END OF BRANCH
-                        if(this.nodes.length==0)this.tree.removeBranch(this);
-                        if (this.nodes.length==1) ///TODO TO NALEŻY ZMIENIĆ
-                        {                            
-                            var l = new Leaf(this.p, 10, this.color, this.tree.ctx);
-                            ///jg
-                            /// Rendering leaf
-                            l.render();
-                            /// Adding node to leaves
-                            
-                            var area = $(document.createElement('div'));
-                            area.css("position","absolute");
-                            area.css("left", this.p.x-3);
-                            area.css("top", this.p.y-3);
-                            area.css("width", 6);
-                            area.css("height", 6);
-                            area.mouseover(	function(){
-                            	console.log("myszka nad " + this.nodes[0].id );	
-                            });
-                            area.click( function()
-                            {
-                            	console.log("klikniecie nad " + this.nodes[0].id );
-                            });
-                            console.log("dodano" + this.nodes[0].id);
-                            $("#canvasoverlay").append(area);
-                            ///End modification
-                        }
+                        
                     },
                     grow: function () {
                         this.draw();
@@ -160,24 +130,56 @@
                     },
                     fork: function () {
                         var p = this.length - Branch.random(100, 200); // + (this.generation * 10);
-                        if (p > 0) {
+                        if (p > 0) {							
 							this.tree.stat.fork += 1;
 
-							var middle = this.nodes.length/3;
-							var arr1 = this.nodes.slice(0,middle);
-							var arr2 = this.nodes.slice(middle+1);
+							if(this.nodes.length == 1)
+							{
+								///DODAJEMY LIŚĆ LUB KWIATEK Bo koniec galzei
+								this.tree.removeBranch(this);
+								
+								var l = new Leaf(this.p, 10, this.color, this.tree.ctx);
+		                        l.render();
+		                        
+		                        var area = $(document.createElement('div'));
+		                        area.css("position","absolute");
+		                        area.css("left", this.p.x-3);
+		                        area.css("top", this.p.y-3);
+		                        area.css("width", 6);
+		                        area.css("height", 6);
+		                        var id = this.nodes[0].id;
+		                        area.data("id", this.nodes[0]);
+		                        
+		                        area.mouseover(	function(){
+		                        	console.log("myszka nad " + id );	
+		                        });
+		                        area.click( function()
+		                        {
+		                        	console.log("klikniecie nad " + id );
+		                        });
+		                        console.log("dodano " + this.nodes[0].id);
+		                        $("#canvasoverlay").append(area);
+		                        return this;
+		                    }
+		                    else
+							{
+								///Rozdzielamy na dwa lub wiecej
 
-							///JEDNA TRZECIA
-							var r = new Branch(new Vector(this.p.x, this.p.y), new Vector(this.v.x, this.v.y),this.r, this.color, this.tree, arr1);
-							r.generation = this.generation + 1;
+								var middle = this.nodes.length/3;
+								var arr1 = this.nodes.slice(0,middle);
+								var arr2 = this.nodes.slice(middle+1);
 
-							///DWIE TRZECIE
-							var r = new Branch(new Vector(this.p.x, this.p.y), new Vector(this.v.x, this.v.y),this.r, this.color, this.tree, arr2);
-							r.generation = this.generation + 1;
-							///TODO TO NALEŻY ZMIENIĆ
+								///JEDNA TRZECIA
+								var r = new Branch(new Vector(this.p.x, this.p.y), new Vector(this.v.x, this.v.y),this.r, this.color, this.tree, arr1);
+								r.generation = this.generation + 1;
 
-							this.tree.removeBranch(this);
-							console.log("dziele na dwa");
+								///DWIE TRZECIE
+								var r = new Branch(new Vector(this.p.x, this.p.y), new Vector(this.v.x, this.v.y),this.r, this.color, this.tree, arr2);
+								r.generation = this.generation + 1;
+		                
+								this.tree.removeBranch(this);
+								console.log("dziele na dwa");
+							}
                         }
                     }
                 };
@@ -276,7 +278,7 @@
                     new Branch(new Vector(center_x, canvas_height), new Vector(Math.random(-1, 0), -y_speed), 15 / stretch_factor, Branch.rgba(0, 255, 0, 0.3), t, user_needs);
                     
                     ///USER_HELPS
-                    new Branch(new Vector(center_x, canvas_height), new Vector(Math.random(0, 1), -y_speed), 15 / stretch_factor, Branch.rgba(0, 0, 255, 0.3), t, user_helps);
+                    new Branch(new Vector(center_x, canvas_height), new Vector(Math.random(-0, -1), -y_speed), 15 / stretch_factor, Branch.rgba(0, 0, 255, 0.3), t, user_helps);
 //					new Branch(new Vector(center_x, canvas_height), new Vector(Math.random(0, 1), -y_speed), 15 / stretch_factor, Branch.randomrgba(0, 255, 0.3), t, null);
                     
                     
