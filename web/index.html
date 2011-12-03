@@ -16,22 +16,19 @@
         <script type="text/javascript">
                         
             var user_needs = [
-            					{ "id" : "1", "type":"leaf"},
-            					{ "id" : "2", "type":"leaf"},
+            					{ "id" : "1", "type":"leaf"}, /*,
+           					{ "id" : "2", "type":"leaf"},
             					{ "id" : "3", "type":"leaf"},
             					{ "id" : "4", "type":"leaf"},
             					{ "id" : "5", "type":"leaf-finished"},
             					{ "id" : "6", "type":"leaf"},
             					{ "id" : "7", "type":"leaf-finished"},
             					{ "id" : "8", "type":"leaf-finished"},
-            					{ "id" : "9", "type":"leaf-finished"}
+            					{ "id" : "9", "type":"leaf-finished"}*/
             				];
             				
             var user_helps = [
             					{ "id" : "0", "type":"pomoc1"},
-            					{ "id" : "1", "type":"pomoc1"},
-            					{ "id" : "2", "type":"pomoc1"},
-            					{ "id" : "3", "type":"pomoc1"},
             				];
             
             var punkty = 
@@ -127,9 +124,10 @@
                         this.length += this.v.length();
                         this.r *= 0.99;
                         this.v.rotate(Branch.random(-angle, angle)); //.mult(0.996);
-                        
+                        console.log("modify");
                         ///END OF BRANCH
-                        if (this.r < 0.8 || this.generation > 10) ///TODO TO NALEŻY ZMIENIĆ
+                        if(this.nodes.length==1)this.tree.removeBranch(this);
+                        if (this.nodes.length==1) ///TODO TO NALEŻY ZMIENIĆ
                         {
                             this.tree.removeBranch(this);
                             
@@ -165,24 +163,23 @@
                     fork: function () {
                         var p = this.length - Branch.random(100, 200); // + (this.generation * 10);
                         if (p > 0) {
-                            
-                            this.tree.stat.fork += 1;
-                            
-                            var middle = this.nodes.length/3;
-                            var arr1 = this.nodes.slice(0,middle);
-                            var arr2 = this.nodes.slice(middle+1);
-                            
-                            ///JEDNA TRZECIA
-					        var r = new Branch(new Vector(this.p.x, this.p.y), new Vector(this.v.x, this.v.y),this.r, this.color, this.tree, arr1);
-					        r.generation = this.generation + 1;
-					        
-					        ///DWIE TRZECIE
-					        var r = new Branch(new Vector(this.p.x, this.p.y), new Vector(this.v.x, this.v.y),this.r, this.color, this.tree, arr2);
-					        r.generation = this.generation + 1;
-					        ///TODO TO NALEŻY ZMIENIĆ
-                            
-                            this.tree.removeBranch(this);
-                            console.log("dziele na dwa");
+							this.tree.stat.fork += 1;
+
+							var middle = this.nodes.length/3;
+							var arr1 = this.nodes.slice(0,middle);
+							var arr2 = this.nodes.slice(middle+1);
+
+							///JEDNA TRZECIA
+							var r = new Branch(new Vector(this.p.x, this.p.y), new Vector(this.v.x, this.v.y),this.r, this.color, this.tree, arr1);
+							r.generation = this.generation + 1;
+
+							///DWIE TRZECIE
+							var r = new Branch(new Vector(this.p.x, this.p.y), new Vector(this.v.x, this.v.y),this.r, this.color, this.tree, arr2);
+							r.generation = this.generation + 1;
+							///TODO TO NALEŻY ZMIENIĆ
+
+							this.tree.removeBranch(this);
+							console.log("dziele na dwa");
                         }
                     }
                 };
