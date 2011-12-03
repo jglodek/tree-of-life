@@ -126,11 +126,9 @@
                         this.v.rotate(Branch.random(-angle, angle)); //.mult(0.996);
                         console.log("modify");
                         ///END OF BRANCH
-                        if(this.nodes.length==1)this.tree.removeBranch(this);
+                        if(this.nodes.length==0)this.tree.removeBranch(this);
                         if (this.nodes.length==1) ///TODO TO NALEŻY ZMIENIĆ
-                        {
-                            this.tree.removeBranch(this);
-                            
+                        {                            
                             var l = new Leaf(this.p, 10, this.color, this.tree.ctx);
                             ///jg
                             /// Rendering leaf
