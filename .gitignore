@@ -14,4 +14,4 @@ Thumbs.db
 .DS_Store
 config/databases.yml
 cache/*
-logs/*
+log/*
