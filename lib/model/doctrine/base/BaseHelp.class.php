@@ -7,17 +7,17 @@
  * 
  * @property string $name
  * @property string $description
- * @property Doctrine_Collection $Category
- * @property Doctrine_Collection $HelpCategory
+ * @property integer $category_id
+ * @property Category $Category
  * 
- * @method string              getName()         Returns the current record's "name" value
- * @method string              getDescription()  Returns the current record's "description" value
- * @method Doctrine_Collection getCategory()     Returns the current record's "Category" collection
- * @method Doctrine_Collection getHelpCategory() Returns the current record's "HelpCategory" collection
- * @method Help                setName()         Sets the current record's "name" value
- * @method Help                setDescription()  Sets the current record's "description" value
- * @method Help                setCategory()     Sets the current record's "Category" collection
- * @method Help                setHelpCategory() Sets the current record's "HelpCategory" collection
+ * @method string   getName()        Returns the current record's "name" value
+ * @method string   getDescription() Returns the current record's "description" value
+ * @method integer  getCategoryId()  Returns the current record's "category_id" value
+ * @method Category getCategory()    Returns the current record's "Category" value
+ * @method Help     setName()        Sets the current record's "name" value
+ * @method Help     setDescription() Sets the current record's "description" value
+ * @method Help     setCategoryId()  Sets the current record's "category_id" value
+ * @method Help     setCategory()    Sets the current record's "Category" value
  * 
  * @package    Tree-of-Life
  * @subpackage model
@@ -36,19 +36,17 @@ abstract class BaseHelp extends sfDoctrineRecord
         $this->hasColumn('description', 'string', null, array(
              'type' => 'string',
              ));
+        $this->hasColumn('category_id', 'integer', null, array(
+             'type' => 'integer',
+             ));
     }
 
     public function setUp()
     {
         parent::setUp();
-        $this->hasMany('Category', array(
-             'refClass' => 'HelpCategory',
-             'local' => 'help_id',
-             'foreign' => 'category_id'));
-
-        $this->hasMany('HelpCategory', array(
-             'local' => 'id',
-             'foreign' => 'help_id'));
+        $this->hasOne('Category', array(
+             'local' => 'category_id',
+             'foreign' => 'id'));
 
         $timestampable0 = new Doctrine_Template_Timestampable();
         $this->actAs($timestampable0);

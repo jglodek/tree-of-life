@@ -12,31 +12,13 @@ Need: ## flower
     name: {type: string(255)}
     description: {type: string}
     done: {type: boolean, default: false}
+    category_id: {type: integer}
   relations:
-    Category:
-      class: Category
-      local: need_id
-      foreign: category_id
-      refClass: NeedCategory  
-
-NeedCategory:
-  options:
-    symfony:
-      form:   false
-      filter: false
-  columns:
-    need_id: {type: integer, primary: true}
-    category_id: {type: integer, primary: true}
-  relations:
-    Need:
-      class: Need
-      local: need_id
-      onDelete: CASCADE
     Category:
       class: Category
       local: category_id
-      onDelete: CASCADE
-          
+      foreign: id
+
   
 Help: ## leaf
   actAs:
@@ -44,31 +26,14 @@ Help: ## leaf
   columns:
     name: {type: string(255)}
     description: {type: string}
+    category_id: {type: integer}
   relations:
-    Category:
-      class: Category
-      local: help_id
-      foreign: category_id
-      refClass: HelpCategory  
-   
-    
-HelpCategory:
-  options:
-    symfony:
-      form:   false
-      filter: false
-  columns:
-    help_id: {type: integer, primary: true}
-    category_id: {type: integer, primary: true}
-  relations:
-    Help:
-      class: Help
-      local: help_id
-      onDelete: CASCADE
     Category:
       class: Category
       local: category_id
-      onDelete: CASCADE
+      foreign: id
+   
+    
       
    
 Category: 
@@ -78,14 +43,15 @@ Category:
   relations:
     Need:
       class: Need
-      local: category_id
-      foreign: need_id
-      refClass: NeedCategory
+      local: id
+      foreign: category_id
+      onDelete: SET NULL
+      
     Help:
       class: Help
-      local: category_id
-      foreign: help_id
-      refClass: HelpCategory
+      local: id
+      foreign: category_id
+      onDelete: SET NULL
       
       
       
