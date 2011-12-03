@@ -8,19 +8,19 @@
  * @property string $name
  * @property string $description
  * @property boolean $done
- * @property Doctrine_Collection $Category
- * @property Doctrine_Collection $NeedCategory
+ * @property integer $category_id
+ * @property Category $Category
  * 
- * @method string              getName()         Returns the current record's "name" value
- * @method string              getDescription()  Returns the current record's "description" value
- * @method boolean             getDone()         Returns the current record's "done" value
- * @method Doctrine_Collection getCategory()     Returns the current record's "Category" collection
- * @method Doctrine_Collection getNeedCategory() Returns the current record's "NeedCategory" collection
- * @method Need                setName()         Sets the current record's "name" value
- * @method Need                setDescription()  Sets the current record's "description" value
- * @method Need                setDone()         Sets the current record's "done" value
- * @method Need                setCategory()     Sets the current record's "Category" collection
- * @method Need                setNeedCategory() Sets the current record's "NeedCategory" collection
+ * @method string   getName()        Returns the current record's "name" value
+ * @method string   getDescription() Returns the current record's "description" value
+ * @method boolean  getDone()        Returns the current record's "done" value
+ * @method integer  getCategoryId()  Returns the current record's "category_id" value
+ * @method Category getCategory()    Returns the current record's "Category" value
+ * @method Need     setName()        Sets the current record's "name" value
+ * @method Need     setDescription() Sets the current record's "description" value
+ * @method Need     setDone()        Sets the current record's "done" value
+ * @method Need     setCategoryId()  Sets the current record's "category_id" value
+ * @method Need     setCategory()    Sets the current record's "Category" value
  * 
  * @package    Tree-of-Life
  * @subpackage model
@@ -43,19 +43,17 @@ abstract class BaseNeed extends sfDoctrineRecord
              'type' => 'boolean',
              'default' => false,
              ));
+        $this->hasColumn('category_id', 'integer', null, array(
+             'type' => 'integer',
+             ));
     }
 
     public function setUp()
     {
         parent::setUp();
-        $this->hasMany('Category', array(
-             'refClass' => 'NeedCategory',
-             'local' => 'need_id',
-             'foreign' => 'category_id'));
-
-        $this->hasMany('NeedCategory', array(
-             'local' => 'id',
-             'foreign' => 'need_id'));
+        $this->hasOne('Category', array(
+             'local' => 'category_id',
+             'foreign' => 'id'));
 
         $timestampable0 = new Doctrine_Template_Timestampable();
         $this->actAs($timestampable0);

@@ -6,6 +6,15 @@ homepage:
   url:   /
   param: { module: default, action: index }
 
+need:
+  class:   sfDoctrineRouteCollection
+  options: { model: Need }
+
+help:
+  class:   sfDoctrineRouteCollection
+  options: { model: Help }
+
+
 # generic rules
 # please, remove them by adding more specific rules
 default_index:

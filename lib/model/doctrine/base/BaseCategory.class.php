@@ -7,23 +7,17 @@
  * 
  * @property string $name
  * @property boolean $visible
- * @property Doctrine_Collection $Need
- * @property Doctrine_Collection $Help
- * @property Doctrine_Collection $NeedCategory
- * @property Doctrine_Collection $HelpCategory
+ * @property Need $Need
+ * @property Help $Help
  * 
- * @method string              getName()         Returns the current record's "name" value
- * @method boolean             getVisible()      Returns the current record's "visible" value
- * @method Doctrine_Collection getNeed()         Returns the current record's "Need" collection
- * @method Doctrine_Collection getHelp()         Returns the current record's "Help" collection
- * @method Doctrine_Collection getNeedCategory() Returns the current record's "NeedCategory" collection
- * @method Doctrine_Collection getHelpCategory() Returns the current record's "HelpCategory" collection
- * @method Category            setName()         Sets the current record's "name" value
- * @method Category            setVisible()      Sets the current record's "visible" value
- * @method Category            setNeed()         Sets the current record's "Need" collection
- * @method Category            setHelp()         Sets the current record's "Help" collection
- * @method Category            setNeedCategory() Sets the current record's "NeedCategory" collection
- * @method Category            setHelpCategory() Sets the current record's "HelpCategory" collection
+ * @method string   getName()    Returns the current record's "name" value
+ * @method boolean  getVisible() Returns the current record's "visible" value
+ * @method Need     getNeed()    Returns the current record's "Need" value
+ * @method Help     getHelp()    Returns the current record's "Help" value
+ * @method Category setName()    Sets the current record's "name" value
+ * @method Category setVisible() Sets the current record's "visible" value
+ * @method Category setNeed()    Sets the current record's "Need" value
+ * @method Category setHelp()    Sets the current record's "Help" value
  * 
  * @package    Tree-of-Life
  * @subpackage model
@@ -48,22 +42,14 @@ abstract class BaseCategory extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
-        $this->hasMany('Need', array(
-             'refClass' => 'NeedCategory',
-             'local' => 'category_id',
-             'foreign' => 'need_id'));
-
-        $this->hasMany('Help', array(
-             'refClass' => 'HelpCategory',
-             'local' => 'category_id',
-             'foreign' => 'help_id'));
-
-        $this->hasMany('NeedCategory', array(
+        $this->hasOne('Need', array(
              'local' => 'id',
-             'foreign' => 'category_id'));
+             'foreign' => 'category_id',
+             'onDelete' => 'SET NULL'));
 
-        $this->hasMany('HelpCategory', array(
+        $this->hasOne('Help', array(
              'local' => 'id',
-             'foreign' => 'category_id'));
+             'foreign' => 'category_id',
+             'onDelete' => 'SET NULL'));
     }
 }

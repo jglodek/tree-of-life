@@ -14,4 +14,11 @@ Thumbs.db
 .DS_Store
 config/databases.yml
 cache/*
-logs/*
+log/*
+
+/lib/filter/doctrine/base/*
+/lib/filter/doctrine/sfDoctrineGuardPlugin/base/*
+/lib/form/doctrine/base/*
+/lib/form/doctrine/sfDoctrineGuardPlugin/base/*
+/lib/model/doctrine/base/*
+/lib/model/doctrine/sfDoctrineGuardPlugin/base/*
