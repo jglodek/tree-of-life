@@ -15,3 +15,10 @@ Thumbs.db
 config/databases.yml
 cache/*
 log/*
+
+/lib/filter/doctrine/base/*
+/lib/filter/doctrine/sfDoctrineGuardPlugin/base/*
+/lib/form/doctrine/base/*
+/lib/form/doctrine/sfDoctrineGuardPlugin/base/*
+/lib/model/doctrine/base/*
+/lib/model/doctrine/sfDoctrineGuardPlugin/base/*
