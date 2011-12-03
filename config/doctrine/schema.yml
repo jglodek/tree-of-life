@@ -33,8 +33,6 @@ Help: ## leaf
       local: category_id
       foreign: id
    
-    
-      
    
 Category: 
   columns:
