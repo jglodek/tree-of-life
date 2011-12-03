@@ -12,5 +12,7 @@ class NeedForm extends BaseNeedForm
 {
   public function configure()
   {
+    parent::configure();
+    unset($this['created_at'], $this['updated_at']);
   }
 }

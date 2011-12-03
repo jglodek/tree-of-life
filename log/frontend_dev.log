@@ -15,3 +15,45 @@ gru 03 17:17:24 symfony [info] {sfWebDebugLogger} Action "need/index" 18.12 ms (
 gru 03 17:17:24 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.01 ms (2)
 gru 03 17:17:24 symfony [info] {sfWebDebugLogger} View "Success" for "need/index" 17.40 ms (1)
 gru 03 17:17:24 symfony [info] {sfWebResponse} Send content (32753 o)
+gru 03 17:29:47 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /need/new with parameters array (  'module' => 'need',  'action' => 'new',)
+gru 03 17:29:47 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+gru 03 17:29:47 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+gru 03 17:29:47 symfony [info] {needActions} Call "needActions->executeNew()"
+gru 03 17:29:47 symfony [info] {sfPHPView} Render "C:\xampp\htdocs\treeoflife\apps\frontend\modules/need/templates/newSuccess.php"
+gru 03 17:29:47 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\apps\frontend\modules/need/templates/_form.php"
+gru 03 17:29:47 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+gru 03 17:29:47 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.name AS c__name, c.visible AS c__visible FROM category c - ()
+gru 03 17:29:47 symfony [info] {sfPHPView} Decorate content with "C:\xampp\htdocs\treeoflife\apps\frontend\templates/layout.php"
+gru 03 17:29:47 symfony [info] {sfPHPView} Render "C:\xampp\htdocs\treeoflife\apps\frontend\templates/layout.php"
+gru 03 17:29:47 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+gru 03 17:29:47 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+gru 03 17:29:47 symfony [info] {sfWebDebugLogger} Configuration 16.25 ms (9)
+gru 03 17:29:47 symfony [info] {sfWebDebugLogger} Factories 25.09 ms (1)
+gru 03 17:29:47 symfony [info] {sfWebDebugLogger} Action "need/new" 27.66 ms (1)
+gru 03 17:29:47 symfony [info] {sfWebDebugLogger} View "Success" for "need/new" 63.21 ms (1)
+gru 03 17:29:47 symfony [info] {sfWebDebugLogger} Partial "need/_form" 48.09 ms (1)
+gru 03 17:29:47 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.01 ms (2)
+gru 03 17:29:47 symfony [info] {sfWebResponse} Send content (48834 o)
+gru 03 17:31:28 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /need/new with parameters array (  'module' => 'need',  'action' => 'new',)
+gru 03 17:31:28 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+gru 03 17:31:28 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+gru 03 17:31:28 symfony [info] {needActions} Call "needActions->executeNew()"
+gru 03 17:32:14 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /need/new with parameters array (  'module' => 'need',  'action' => 'new',)
+gru 03 17:32:14 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+gru 03 17:32:14 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+gru 03 17:32:14 symfony [info] {needActions} Call "needActions->executeNew()"
+gru 03 17:32:14 symfony [info] {sfPHPView} Render "C:\xampp\htdocs\treeoflife\apps\frontend\modules/need/templates/newSuccess.php"
+gru 03 17:32:14 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\apps\frontend\modules/need/templates/_form.php"
+gru 03 17:32:14 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+gru 03 17:32:14 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.name AS c__name, c.visible AS c__visible FROM category c - ()
+gru 03 17:32:14 symfony [info] {sfPHPView} Decorate content with "C:\xampp\htdocs\treeoflife\apps\frontend\templates/layout.php"
+gru 03 17:32:14 symfony [info] {sfPHPView} Render "C:\xampp\htdocs\treeoflife\apps\frontend\templates/layout.php"
+gru 03 17:32:14 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+gru 03 17:32:14 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+gru 03 17:32:14 symfony [info] {sfWebDebugLogger} Configuration 13.10 ms (9)
+gru 03 17:32:14 symfony [info] {sfWebDebugLogger} Factories 27.08 ms (1)
+gru 03 17:32:14 symfony [info] {sfWebDebugLogger} Action "need/new" 30.57 ms (1)
+gru 03 17:32:14 symfony [info] {sfWebDebugLogger} View "Success" for "need/new" 35.28 ms (1)
+gru 03 17:32:14 symfony [info] {sfWebDebugLogger} Partial "need/_form" 21.52 ms (1)
+gru 03 17:32:14 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.01 ms (2)
+gru 03 17:32:14 symfony [info] {sfWebResponse} Send content (38104 o)

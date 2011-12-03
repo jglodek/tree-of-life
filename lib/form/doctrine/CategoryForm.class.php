@@ -12,5 +12,7 @@ class CategoryForm extends BaseCategoryForm
 {
   public function configure()
   {
+    parent::configure();
+    unset($this['need_list'], $this['help_list']);
   }
 }
