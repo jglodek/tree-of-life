@@ -1,0 +1,16 @@
+awstats/*
+stats/*
+.htpasswd
+logs/*
+private_html/*
+public_ftp/*
+stats/*
+nbproject
+.buildpath 
+.project 
+.settings 
+desktop.ini 
+Thumbs.db
+.DS_Store
+cache/*
+logs/*
