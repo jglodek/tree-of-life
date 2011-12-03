@@ -18,6 +18,8 @@ abstract class BaseHelpForm extends BaseFormDoctrine
       'id'            => new sfWidgetFormInputHidden(),
       'name'          => new sfWidgetFormInputText(),
       'description'   => new sfWidgetFormTextarea(),
+      'created_at'    => new sfWidgetFormDateTime(),
+      'updated_at'    => new sfWidgetFormDateTime(),
       'category_list' => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Category')),
     ));
 
@@ -25,6 +27,8 @@ abstract class BaseHelpForm extends BaseFormDoctrine
       'id'            => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'name'          => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'description'   => new sfValidatorString(array('required' => false)),
+      'created_at'    => new sfValidatorDateTime(),
+      'updated_at'    => new sfValidatorDateTime(),
       'category_list' => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Category', 'required' => false)),
     ));
 

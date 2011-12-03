@@ -1,0 +1,37 @@
+Category:
+  Category_1:
+    name: 'porada medyczna'
+    visible: true
+  Category_2:
+    name: 'porada prawnicza'
+    visible: true
+  Category_3:
+    name: 'porada dietetyczna'
+    visible: true
+  Category_4:
+    name: 'porada psychologiczna'
+    visible: true
+  Category_5:
+    name: transport
+    visible: true
+  Category_6:
+    name: 'rozmowa (o chorobie, o problemach, itp)'
+    visible: true
+  Category_7:
+    name: 'pomoc domowa (sprz?tenie, zakupy, itp)'
+    visible: true
+  Category_8:
+    name: 'towarzystwo (wspólne sp?dzanie czasu)'
+    visible: true
+  Category_9:
+    name: 'wykonywanie bada? diagnostycznych'
+    visible: true
+  Category_10:
+    name: 'opieka nad dzie?mi'
+    visible: true
+  Category_11:
+    name: 'opieka piel?gniarska'
+    visible: true
+  Category_12:
+    name: 'przekazanie leków'
+    visible: true

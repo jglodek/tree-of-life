@@ -49,5 +49,8 @@ abstract class BaseHelp extends sfDoctrineRecord
         $this->hasMany('HelpCategory', array(
              'local' => 'id',
              'foreign' => 'help_id'));
+
+        $timestampable0 = new Doctrine_Template_Timestampable();
+        $this->actAs($timestampable0);
     }
 }

@@ -7,15 +7,18 @@
  * 
  * @property string $name
  * @property string $description
+ * @property boolean $done
  * @property Doctrine_Collection $Category
  * @property Doctrine_Collection $NeedCategory
  * 
  * @method string              getName()         Returns the current record's "name" value
  * @method string              getDescription()  Returns the current record's "description" value
+ * @method boolean             getDone()         Returns the current record's "done" value
  * @method Doctrine_Collection getCategory()     Returns the current record's "Category" collection
  * @method Doctrine_Collection getNeedCategory() Returns the current record's "NeedCategory" collection
  * @method Need                setName()         Sets the current record's "name" value
  * @method Need                setDescription()  Sets the current record's "description" value
+ * @method Need                setDone()         Sets the current record's "done" value
  * @method Need                setCategory()     Sets the current record's "Category" collection
  * @method Need                setNeedCategory() Sets the current record's "NeedCategory" collection
  * 
@@ -36,6 +39,10 @@ abstract class BaseNeed extends sfDoctrineRecord
         $this->hasColumn('description', 'string', null, array(
              'type' => 'string',
              ));
+        $this->hasColumn('done', 'boolean', null, array(
+             'type' => 'boolean',
+             'default' => false,
+             ));
     }
 
     public function setUp()
@@ -49,5 +56,8 @@ abstract class BaseNeed extends sfDoctrineRecord
         $this->hasMany('NeedCategory', array(
              'local' => 'id',
              'foreign' => 'need_id'));
+
+        $timestampable0 = new Doctrine_Template_Timestampable();
+        $this->actAs($timestampable0);
     }
 }
