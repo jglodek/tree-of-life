@@ -1,3 +1,6 @@
 [submodule "plugins/sfDoctrineGuardPlugin"]
 	path = plugins/sfDoctrineGuardPlugin
 	url = git@github.com:Konrad-Podgorski/sfDoctrineGuardPlugin.git
+[submodule "plugins/sfAdminDashPlugin"]
+	path = plugins/sfAdminDashPlugin
+	url = https://github.com/kbond/sfAdminDashPlugin.git
