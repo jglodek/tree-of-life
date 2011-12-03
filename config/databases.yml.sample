@@ -5,6 +5,6 @@ all:
   doctrine:
     class: sfDoctrineDatabase
     param:
-      dsn:      mysql:host=localhost;dbname=Tree-of-Life
+      dsn:      mysql:host=localhost;dbname=tree_of_life
       username: root
       password: 
