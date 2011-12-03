@@ -5,9 +5,12 @@ Rysowanie drzewa robił Jacek Głodek:
 - drzewo rysuje się
 - drzewo generuje liście z tablic user_needs, user_helps
 - gałęzie robią się za cienkie i nie widać wszystkich liści
+- są dwie początkowe gałęzie jedna dla potrzeb chorych, jedna dla ofert pomocy
+- Niektóre gałęzie nie kończą się rysować
 
 Co trzeba zrobić:
-- Zczytać dane z JSON'a 
+- Zczytać dane z JSON'a z adresu /needs.json /helps.json
+- Poprawić
+- rozdzielić skrypty, style i htmla od siebię.
 
 
-Zabe
