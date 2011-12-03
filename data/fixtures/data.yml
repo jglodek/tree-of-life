@@ -18,19 +18,19 @@ Category:
     name: 'rozmowa (o chorobie, o problemach, itp)'
     visible: true
   Category_7:
-    name: 'pomoc domowa (sprz?tenie, zakupy, itp)'
+    name: 'pomoc domowa (sprzątenie, zakupy, itp)'
     visible: true
   Category_8:
-    name: 'towarzystwo (wspólne sp?dzanie czasu)'
+    name: 'towarzystwo (wspólne spędzanie czasu)'
     visible: true
   Category_9:
-    name: 'wykonywanie bada? diagnostycznych'
+    name: 'wykonywanie badań diagnostycznych'
     visible: true
   Category_10:
-    name: 'opieka nad dzie?mi'
+    name: 'opieka nad dziećmi'
     visible: true
   Category_11:
-    name: 'opieka piel?gniarska'
+    name: 'opieka pielęgniarska'
     visible: true
   Category_12:
     name: 'przekazanie leków'
