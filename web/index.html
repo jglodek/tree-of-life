@@ -1,8 +1,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-        <title>PlasmaTree</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+        <title>Drzewo Życia</title>
         <meta name="description" content="PlasmaTree is a ChromeExperiment developed by mhepekka using JavaScript and Canvas" />
         <meta name="keywords" content="Plasmatree, PlasmaTree, Canvas, JavaScript, mhepekka, HTML5, Experiment, Tree, Algorithm, ChromeExperiment, Google, new technology, ParticleWorld, bender_328" />
         <meta name="author" content="mhepekka" />
@@ -16,23 +16,25 @@
         <script type="text/javascript">
                         
             var user_needs = [
-            					{ "id" : "0", "type":"leaf"},
             					{ "id" : "1", "type":"leaf"},
             					{ "id" : "2", "type":"leaf"},
             					{ "id" : "3", "type":"leaf"},
-            					{ "id" : "4", "type":"leaf-finished"},
-            					{ "id" : "5", "type":"leaf"},
-            					{ "id" : "6", "type":"leaf-finished"},
+            					{ "id" : "4", "type":"leaf"},
+            					{ "id" : "5", "type":"leaf-finished"},
+            					{ "id" : "6", "type":"leaf"},
             					{ "id" : "7", "type":"leaf-finished"},
-            					{ "id" : "8", "type":"leaf-finished"}
+            					{ "id" : "8", "type":"leaf-finished"},
+            					{ "id" : "9", "type":"leaf-finished"}
             				];
+            				
             var user_helps = [
             					{ "id" : "0", "type":"pomoc1"},
             					{ "id" : "1", "type":"pomoc1"},
             					{ "id" : "2", "type":"pomoc1"},
             					{ "id" : "3", "type":"pomoc1"},
             				];
-            				
+            
+            var punkty = 
             				
             				
             (function ($) {
@@ -94,10 +96,11 @@
                 }
 
 
-                var Branch = function (p, v, r, c, t) {
+                var Branch = function (p, v, r, c, t,nodes) {
                     this.p = p || null;
                     this.v = v || null;
                     this.r = r || 0;
+                    this.nodes = nodes || null;
                     this.length = 0;
                     this.generation = 1;
                     this.tree = t || null;
@@ -117,16 +120,35 @@
                         ctx.arc(this.p.x, this.p.y, this.r, 0, Branch.circle, true);
                         ctx.fill();
                     },
-                    modify: function () {
+                    modify: function () 
+                    {
                         var angle = 0.18 - (0.10 / this.generation);
                         this.p.add(this.v);
                         this.length += this.v.length();
                         this.r *= 0.99;
                         this.v.rotate(Branch.random(-angle, angle)); //.mult(0.996);
-                        if (this.r < 0.8 || this.generation > 10) {
+                        ///END OF BRANCH
+                        if (this.r < 0.8 || this.generation > 10) ///TODO TO NALEŻY ZMIENIĆ
+                        {
                             this.tree.removeBranch(this);
+                            
                             var l = new Leaf(this.p, 10, this.color, this.tree.ctx);
+                            ///jg
+                            /// Rendering leaf
                             l.render();
+                            /// Adding node to leaves
+                            var area = new jQuery("<div\>");
+                            area.css("position","absolute");
+                            area.css("x", this.p.x-3);
+                            area.css("y", this.p.y+3);
+                            area.css("width", 6);
+                            area.css("height", 6);
+                            area.mouseover(
+                            			function(){$(this)},
+                            			function(){$(this)}
+                            		);
+                            $("#overlay").append(area);
+                            ///End modification
                         }
                     },
                     grow: function () {
@@ -139,8 +161,10 @@
                         if (p > 0) {
                             var n = Math.round(Branch.random(1, 3));
                             this.tree.stat.fork += n - 1;
+                            ///TODO TO NALEŻY ZMIENIĆ
                             for (var i = 0; i < n; i++) {
                                 Branch.clone(this);
+                                ///TODO TO NALEŻY ZMIENIĆ
                             }
                             this.tree.removeBranch(this);
                         }
@@ -152,7 +176,7 @@
                     return Math.random() * (max - min) + min;
                 };
                 Branch.clone = function (b) {
-                    var r = new Branch(new Vector(b.p.x, b.p.y), new Vector(b.v.x, b.v.y), b.r, b.color, b.tree);
+                    var r = new Branch(new Vector(b.p.x, b.p.y), new Vector(b.v.x, b.v.y), b.r, b.color, b.tree, b.nodes);
                     r.generation = b.generation + 1;
                     return r;
                 };
@@ -213,7 +237,8 @@
                     // init
 
                     var $window = $(window);
-                    var $body = $("body");
+                    var $body = $("body");    
+            		var $overlay = $("#overlay");
                     var canvas_width = $window.width();
                     var canvas_height = $window.height() - 30;
                     var center_x = canvas_width / 2;
@@ -233,15 +258,24 @@
 
                     var t = new Tree();
                     t.init(ctx);
-                    for (var i = 0; i < 3; i++) {
-                        new Branch(new Vector(center_x, canvas_height), new Vector(Math.random(-1, 1), -y_speed), 15 / stretch_factor, Branch.randomrgba(0, 255, 0.3), t);
-                    }
+                    
+                    ///TUTAJ ZMIENIĆ
+                    
+                    ///USER_NEEDS
+                    new Branch(new Vector(center_x, canvas_height), new Vector(Math.random(-1, 0), -y_speed), 15 / stretch_factor, Branch.rgba(0, 255, 0, 0.3), t, null);
+                    
+                    ///USER_HELPS
+                    new Branch(new Vector(center_x, canvas_height), new Vector(Math.random(0, 1), -y_speed), 15 / stretch_factor, Branch.rgba(0, 0, 255, 0.3), t, null);
+//					new Branch(new Vector(center_x, canvas_height), new Vector(Math.random(0, 1), -y_speed), 15 / stretch_factor, Branch.randomrgba(0, 255, 0.3), t, null);
+                    
+                    
                     t.render(function () {
                         $statMsg.html(this.stat.fork);
                     });
 
                     // events
-
+                    
+					/**
                     $("#drawArea").click(function (e) {
                         //e.preventDefault();
                         var x, y;
@@ -249,6 +283,8 @@
                         y = e.pageY - this.offsetTop;
                         new Branch(new Vector(x, canvas_height), new Vector(0, -y_speed), 15 / stretch_factor, Branch.randomrgba(0, 255, 0.3), t);
                     });
+                	*/
+                	
                     $("#btnClear").click(function (e) {
                         e.stopPropagation();
                         t.abort();
@@ -329,17 +365,23 @@
     <body>
         <div id="drawArea">
         <div id="badgeArea">
+        <!--
         <a href="http://www.openrise.com/lab/FlowerPower/"><img src="assets/FlowerPowerBadge.png" alt="FlowerPower, a new experiment" /></a>
         <a href="http://www.chromeexperiments.com/"><img src="assets/badge.png" alt="See my Experiment on ChromeExperiments.com" /></a>
+        -->
         </div>
         <div id="buttonArea">
+        <!--
         <a href="#" id="btnClear">Clear</a>
         <a href="#" id="btnReload">Reload</a>
-
-        </div>
-            <canvas id='canvas' style="width:100%; height:100%;"></canvas>
+		-->
+        <div id="overlay">
+		    </div>
+		        <canvas id='canvas' style="width:100%; height:100%;"></canvas>
+		    </div>
         </div>
         <div id="configArea">
+			<!--
             <div style="float: left;">
                 <div style="padding-top: 2px; margin-right: 4px; float: left;">
                 <script type="text/javascript">
@@ -354,6 +396,7 @@
             </div>
             <div id='statArea'>#fork: <span id="statMsg"></span>
             </div>
+            -->
         </div>
     </body>
 </html>
