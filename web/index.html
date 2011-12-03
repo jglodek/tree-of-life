@@ -16,15 +16,15 @@
         <script type="text/javascript">
                         
             var user_needs = [
-            					{ "id" : "1", "type":"leaf"}, /*,
-           					{ "id" : "2", "type":"leaf"},
+            					{ "id" : "1", "type":"leaf"},
+           						{ "id" : "2", "type":"leaf"},
             					{ "id" : "3", "type":"leaf"},
             					{ "id" : "4", "type":"leaf"},
             					{ "id" : "5", "type":"leaf-finished"},
             					{ "id" : "6", "type":"leaf"},
             					{ "id" : "7", "type":"leaf-finished"},
             					{ "id" : "8", "type":"leaf-finished"},
-            					{ "id" : "9", "type":"leaf-finished"}*/
+            					{ "id" : "9", "type":"leaf-finished"}
             				];
             				
             var user_helps = [
@@ -63,14 +63,40 @@
                     }
                 };
 
-                var Leaf = function (p, r, c, ctx) {
-                    this.p = p || null;
-                    this.r = r || 0;
-                    this.c = c || 'rgba(255,255,255,1.0)';
-                    this.ctx = ctx;
+                var Leaf = function (p, r, c, ctx, x, y, node) {
+					this.p = p || null;
+					this.r = r || 0;
+					this.c = c || 'rgba(255,255,255,1.0)';
+					this.ctx = ctx;
+					this.x = x;
+					this.y = y;
+					this.node = node;
+					this.id = this.node.id;
+					this.create_div();
                 }
 
                 Leaf.prototype = {
+                	create_div: function()
+                	{
+				    	var area = $(document.createElement('div'));
+						area.css("position","absolute");
+						area.css("left", this.x-3);
+						area.css("top", this.y-3);
+						area.css("width", 6);
+						area.css("height", 6);
+						var id = this.id;
+						area.mouseover(	function(){
+							console.log("myszka nad " + id );	
+						});
+						area.click( function()
+						{
+							console.log("klikniecie nad " + id );
+						});
+						console.log("dodano " + id);
+						
+						$("#canvasoverlay").append(area);
+				        
+                	},
                     render: function () {
                         var that = this;
                         var ctx = this.ctx;
@@ -129,7 +155,9 @@
                         this.fork();
                     },
                     fork: function () {
+                        ///DECYZJA KIEDY MAMY ZROBIC ROZWIDLENIE <- Do poprawy!
                         var p = this.length - Branch.random(100, 200); // + (this.generation * 10);
+                        
                         if (p > 0) {							
 							this.tree.stat.fork += 1;
 
@@ -137,28 +165,8 @@
 							{
 								///DODAJEMY LIŚĆ LUB KWIATEK Bo koniec galzei
 								this.tree.removeBranch(this);
-								
-								var l = new Leaf(this.p, 10, this.color, this.tree.ctx);
+								var l = new Leaf(this.p, 10, this.color, this.tree.ctx,this.p.x,this.p.y, this.nodes[0]);
 		                        l.render();
-		                        
-		                        var area = $(document.createElement('div'));
-		                        area.css("position","absolute");
-		                        area.css("left", this.p.x-3);
-		                        area.css("top", this.p.y-3);
-		                        area.css("width", 6);
-		                        area.css("height", 6);
-		                        var id = this.nodes[0].id;
-		                        area.data("id", this.nodes[0]);
-		                        
-		                        area.mouseover(	function(){
-		                        	console.log("myszka nad " + id );	
-		                        });
-		                        area.click( function()
-		                        {
-		                        	console.log("klikniecie nad " + id );
-		                        });
-		                        console.log("dodano " + this.nodes[0].id);
-		                        $("#canvasoverlay").append(area);
 		                        return this;
 		                    }
 		                    else
@@ -265,7 +273,7 @@
                     canvas.width = canvas_width;
                     canvas.height = canvas_height;
                     var ctx = canvas.getContext("2d");
-                    ctx.globalCompositeOperation = "lighter";
+                    ctx.globalCompositeOperation = "darker";
 
                     // tree
 
@@ -275,10 +283,10 @@
                     ///TUTAJ ZMIENIĆ
                     
                     ///USER_NEEDS
-                    new Branch(new Vector(center_x, canvas_height), new Vector(Math.random(-1, 0), -y_speed), 15 / stretch_factor, Branch.rgba(0, 255, 0, 0.3), t, user_needs);
+                    new Branch(new Vector(center_x, canvas_height), new Vector(Math.random(-1, 0), -y_speed), 15 / stretch_factor, Branch.rgba(178, 73, 20, 0.3), t, user_needs);
                     
                     ///USER_HELPS
-                    new Branch(new Vector(center_x, canvas_height), new Vector(Math.random(-0, -1), -y_speed), 15 / stretch_factor, Branch.rgba(0, 0, 255, 0.3), t, user_helps);
+                    new Branch(new Vector(center_x, canvas_height), new Vector(Math.random(0, -1), -y_speed), 15 / stretch_factor, Branch.rgba(110, 179, 20, 0.3), t, user_helps);
 //					new Branch(new Vector(center_x, canvas_height), new Vector(Math.random(0, 1), -y_speed), 15 / stretch_factor, Branch.randomrgba(0, 255, 0.3), t, null);
                     
                     
@@ -331,7 +339,7 @@
             }
 
             canvas {
-                background-color: #000;
+                background-color: transparent;
                 cursor: pointer;
             }
 
