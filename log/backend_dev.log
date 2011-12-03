@@ -3152,3 +3152,110 @@ gru 03 17:09:58 symfony [info] {sfWebDebugLogger} Component "sfAdminDash/header"
 gru 03 17:09:58 symfony [info] {sfWebDebugLogger} Partial "sfAdminDash/_header" 1.70 ms (1)
 gru 03 17:09:58 symfony [info] {sfWebDebugLogger} Partial "sfAdminDash/_footer" 1.63 ms (1)
 gru 03 17:09:58 symfony [info] {sfWebResponse} Send content (144635 o)
+gru 03 17:14:41 symfony [info] {sfPatternRouting} Match route "category" (/category.:sf_format) for /category with parameters array (  'module' => 'category',  'action' => 'index',  'sf_format' => 'html',)
+gru 03 17:14:41 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+gru 03 17:14:41 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+gru 03 17:14:41 symfony [info] {categoryActions} Call "categoryActions->executeIndex()"
+gru 03 17:14:41 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+gru 03 17:14:41 symfony [info] {Doctrine_Connection_Mysql} query : SELECT COUNT(*) AS num_results FROM category c - ()
+gru 03 17:14:41 symfony [info] {sfPHPView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/indexSuccess.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_assets.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_flashes.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_header.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_filters.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_filters_field.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_filters_field.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_filters_field.php"
+gru 03 17:14:41 symfony [info] {Doctrine_Connection_Mysql} query : SELECT n.id AS n__id, n.name AS n__name, n.description AS n__description, n.done AS n__done, n.created_at AS n__created_at, n.updated_at AS n__updated_at FROM need n - ()
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_filters_field.php"
+gru 03 17:14:41 symfony [info] {Doctrine_Connection_Mysql} query : SELECT h.id AS h__id, h.name AS h__name, h.description AS h__description, h.created_at AS h__created_at, h.updated_at AS h__updated_at FROM help h - ()
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_th_tabular.php"
+gru 03 17:14:41 symfony [info] {main} Set slot "sf_admin.current_header"
+gru 03 17:14:41 symfony [info] {main} Get slot "sf_admin.current_header"
+gru 03 17:14:41 symfony [info] {main} Set slot "sf_admin.current_header"
+gru 03 17:14:41 symfony [info] {main} Get slot "sf_admin.current_header"
+gru 03 17:14:41 symfony [info] {main} Set slot "sf_admin.current_header"
+gru 03 17:14:41 symfony [info] {main} Get slot "sf_admin.current_header"
+gru 03 17:14:41 symfony [info] {Doctrine_Connection_Mysql} query : SELECT c.id AS c__id, c.name AS c__name, c.visible AS c__visible FROM category c LIMIT 20 - ()
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_td_batch_actions.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_td_tabular.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_field_boolean.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_td_actions.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_td_batch_actions.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_td_tabular.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_field_boolean.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_td_actions.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_td_batch_actions.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_td_tabular.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_field_boolean.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_td_actions.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_td_batch_actions.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_td_tabular.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_field_boolean.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_td_actions.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_td_batch_actions.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_td_tabular.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_field_boolean.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_td_actions.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_td_batch_actions.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_td_tabular.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_field_boolean.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_td_actions.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_td_batch_actions.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_td_tabular.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_field_boolean.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_td_actions.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_td_batch_actions.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_td_tabular.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_field_boolean.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_td_actions.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_td_batch_actions.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_td_tabular.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_field_boolean.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_td_actions.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_td_batch_actions.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_td_tabular.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_field_boolean.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_td_actions.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_td_batch_actions.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_td_tabular.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_field_boolean.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_td_actions.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_td_batch_actions.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_td_tabular.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_field_boolean.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_td_actions.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_batch_actions.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_actions.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:\xampp\htdocs\treeoflife\cache\backend\dev\modules/autoCategory/templates/_list_footer.php"
+gru 03 17:14:41 symfony [info] {sfPHPView} Decorate content with "C:\xampp\htdocs\treeoflife\apps\backend\templates/layout.php"
+gru 03 17:14:41 symfony [info] {sfPHPView} Render "C:\xampp\htdocs\treeoflife\apps\backend\templates/layout.php"
+gru 03 17:14:41 symfony [info] {main} Call "sfAdminDash->executeHeader()"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:/xampp/htdocs/treeoflife/plugins/sfAdminDashPlugin/modules/sfAdminDash/templates/_header.php"
+gru 03 17:14:41 symfony [info] {sfPartialView} Render "C:/xampp/htdocs/treeoflife/plugins/sfAdminDashPlugin/modules/sfAdminDash/templates/_footer.php"
+gru 03 17:14:41 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+gru 03 17:14:41 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+gru 03 17:14:41 symfony [info] {sfWebDebugLogger} Configuration 25.54 ms (13)
+gru 03 17:14:41 symfony [info] {sfWebDebugLogger} Factories 22.88 ms (1)
+gru 03 17:14:41 symfony [info] {sfWebDebugLogger} Action "category/index" 22.34 ms (1)
+gru 03 17:14:41 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (5)
+gru 03 17:14:41 symfony [info] {sfWebDebugLogger} View "Success" for "category/index" 215.13 ms (1)
+gru 03 17:14:41 symfony [info] {sfWebDebugLogger} Partial "category/_assets" 1.71 ms (1)
+gru 03 17:14:41 symfony [info] {sfWebDebugLogger} Partial "category/_flashes" 1.56 ms (1)
+gru 03 17:14:41 symfony [info] {sfWebDebugLogger} Partial "category/_list_header" 1.44 ms (1)
+gru 03 17:14:41 symfony [info] {sfWebDebugLogger} Partial "category/_filters" 31.14 ms (1)
+gru 03 17:14:41 symfony [info] {sfWebDebugLogger} Partial "category/_filters_field" 22.90 ms (4)
+gru 03 17:14:41 symfony [info] {sfWebDebugLogger} Partial "category/_list" 121.58 ms (1)
+gru 03 17:14:41 symfony [info] {sfWebDebugLogger} Partial "category/_list_th_tabular" 3.01 ms (1)
+gru 03 17:14:41 symfony [info] {sfWebDebugLogger} Partial "category/_list_td_batch_actions" 18.15 ms (12)
+gru 03 17:14:41 symfony [info] {sfWebDebugLogger} Partial "category/_list_td_tabular" 44.57 ms (12)
+gru 03 17:14:41 symfony [info] {sfWebDebugLogger} Partial "category/_list_field_boolean" 16.91 ms (12)
+gru 03 17:14:41 symfony [info] {sfWebDebugLogger} Partial "category/_list_td_actions" 32.01 ms (12)
+gru 03 17:14:41 symfony [info] {sfWebDebugLogger} Partial "category/_list_batch_actions" 1.97 ms (1)
+gru 03 17:14:41 symfony [info] {sfWebDebugLogger} Partial "category/_list_actions" 1.53 ms (1)
+gru 03 17:14:41 symfony [info] {sfWebDebugLogger} Partial "category/_list_footer" 1.25 ms (1)
+gru 03 17:14:41 symfony [info] {sfWebDebugLogger} Component "sfAdminDash/header" 0.42 ms (1)
+gru 03 17:14:41 symfony [info] {sfWebDebugLogger} Partial "sfAdminDash/_header" 3.12 ms (1)
+gru 03 17:14:41 symfony [info] {sfWebDebugLogger} Partial "sfAdminDash/_footer" 1.90 ms (1)
+gru 03 17:14:42 symfony [info] {sfWebResponse} Send content (144667 o)
