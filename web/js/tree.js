@@ -17,6 +17,41 @@ var user_needs = [
 					{ "id" : "2", "type":"leaf"},
 					{ "id" : "3", "type":"leaf"},
 					{ "id" : "4", "type":"leaf"},
+					{ "id" : "1", "type":"leaf"},
+					{ "id" : "2", "type":"leaf"},
+					{ "id" : "3", "type":"leaf"},
+					{ "id" : "4", "type":"leaf"},
+					{ "id" : "5", "type":"leaf-finished"},
+					{ "id" : "6", "type":"leaf"},
+					{ "id" : "7", "type":"leaf-finished"},
+					{ "id" : "8", "type":"leaf-finished"},
+					{ "id" : "1", "type":"leaf"},
+					{ "id" : "2", "type":"leaf"},
+					{ "id" : "3", "type":"leaf"},
+					{ "id" : "4", "type":"leaf"},					{ "id" : "1", "type":"leaf"},
+					{ "id" : "2", "type":"leaf"},
+					{ "id" : "3", "type":"leaf"},
+					{ "id" : "4", "type":"leaf"},
+					{ "id" : "5", "type":"leaf-finished"},
+					{ "id" : "6", "type":"leaf"},
+					{ "id" : "7", "type":"leaf-finished"},
+					{ "id" : "8", "type":"leaf-finished"},
+					{ "id" : "1", "type":"leaf"},
+					{ "id" : "2", "type":"leaf"},
+					{ "id" : "3", "type":"leaf"},
+					{ "id" : "4", "type":"leaf"},
+					{ "id" : "1", "type":"leaf"},
+					{ "id" : "2", "type":"leaf"},
+					{ "id" : "3", "type":"leaf"},
+					{ "id" : "4", "type":"leaf"},
+					{ "id" : "5", "type":"leaf-finished"},
+					{ "id" : "6", "type":"leaf"},
+					{ "id" : "7", "type":"leaf-finished"},
+					{ "id" : "8", "type":"leaf-finished"},
+					{ "id" : "1", "type":"leaf"},
+					{ "id" : "2", "type":"leaf"},
+					{ "id" : "3", "type":"leaf"},
+					{ "id" : "4", "type":"leaf"}
 				];
 				
 var user_helps = [
@@ -25,6 +60,26 @@ var user_helps = [
 					{ "id" : "0", "type":"pomoc1"},
 					{ "id" : "0", "type":"pomoc1"},
 					{ "id" : "0", "type":"pomoc1"},
+					{ "id" : "0", "type":"pomoc1"},
+					{ "id" : "0", "type":"pomoc1"},
+					{ "id" : "0", "type":"pomoc1"},
+					{ "id" : "0", "type":"pomoc1"},
+					{ "id" : "0", "type":"pomoc1"},
+					{ "id" : "0", "type":"pomoc1"},
+					{ "id" : "0", "type":"pomoc1"},
+					{ "id" : "0", "type":"pomoc1"},
+					{ "id" : "0", "type":"pomoc1"},
+					{ "id" : "0", "type":"pomoc1"},
+					{ "id" : "0", "type":"pomoc1"},
+					{ "id" : "0", "type":"pomoc1"},
+					{ "id" : "0", "type":"pomoc1"},
+					{ "id" : "0", "type":"pomoc1"},
+					{ "id" : "0", "type":"pomoc1"},
+					{ "id" : "0", "type":"pomoc1"},
+					{ "id" : "0", "type":"pomoc1"},
+					{ "id" : "0", "type":"pomoc1"},
+					{ "id" : "0", "type":"pomoc1"},
+					{ "id" : "0", "type":"pomoc1"}
 				];
 
 (function ($) {
@@ -62,7 +117,7 @@ var user_helps = [
 		var Leaf = function (p, r, ctx, x, y, node) {
 			this.p = p || null;
 			this.r = r || 0;
-			this.c = 'rgba(77,134,33,1.0)';
+			this.c = 'rgba(77,134,33,0.5)';
 			this.ctx = ctx;
 			this.x = x;
 			this.y = y;
@@ -135,7 +190,7 @@ var user_helps = [
 						ctx.beginPath();
 						ctx.fillStyle = this.color;
 						ctx.moveTo(this.p.x, this.p.y);
-						ctx.arc(this.p.x, this.p.y, this.r, 0, Branch.circle, true);
+						ctx.arc(this.p.x, this.p.y, Math.max(this.r,1), 0, Branch.circle, true);
 						ctx.fill();
 				},
 				modify: function () 
@@ -154,7 +209,7 @@ var user_helps = [
 				},
 				fork: function () {
 						///DECYZJA KIEDY MAMY ZROBIC ROZWIDLENIE <- Do poprawy!
-						var p = this.length - Branch.random(100, 200); // + (this.generation * 10);
+						var p = this.length - Math.max(Branch.random(this.r*20,this.r*35 ), 100); // + (this.generation * 10);
 						if (p > 0) {							
 							this.tree.stat.fork += 1;
 							if(this.nodes.length == 1)
@@ -276,40 +331,44 @@ var user_helps = [
 				
 				///TODO: Pobranie danych ajaxem
 				///TODO: Podzielenie danych na kategorie
-				
+				///ILE LISCI NA GALAZ
+				var ile_lisci_na_galaz = 20;
 				///POTRZEBY
 				{
-					var dziesiatka = 0;
 					for(var i = 0;i<user_needs.length-1;++i)
 					{
+						
+						var krotnosc = 0;
 						///iteracja po wszystkich
-						if(i%10 == 9)
+						if(i%(ile_lisci_na_galaz) == ile_lisci_na_galaz-1)
 						{
-							var array = user_needs.slice(dziesiatka*10, i);
-							new Branch(new Vector(center_x, canvas_height), new Vector(Math.random(-1, 0), -y_speed), 15 / stretch_factor, Branch.rgba(178, 73, 20, 0.3), t, array);
-							dziesiatka++;
+							var array = user_needs.slice(krotnosc*ile_lisci_na_galaz, i);
+							new Branch(new Vector(center_x, canvas_height), new Vector(Math.random(-1, 1), -y_speed), 15 / stretch_factor, Branch.rgba(58, 201, 22, 0.3), t, array);
+							krotnosc++;
+							console.log("dodaje brancz potrzeba");
 						}
 					}
-					var array = user_needs.slice(dziesiatka*10);
+					var array = user_needs.slice(krotnosc*ile_lisci_na_galaz);
 					///Koncowka
-					new Branch(new Vector(center_x, canvas_height), new Vector(Math.random(-1, 0), -y_speed), 15 / stretch_factor, Branch.rgba(178, 73, 20, 0.3), t, array);
+					new Branch(new Vector(center_x, canvas_height), new Vector(Math.random(-1, 1), -y_speed), 15 / stretch_factor, Branch.rgba(58, 201, 22, 0.3), t, array);
 				}	
 				///POMOC
 				{
-					var dziesiatka = 0;
+					var krotnosc = 0;
 					for(var i = 0;i<user_helps.length-1;++i)
 					{
 						///iteracja po wszystkich
 						if(i%10 == 9)
 						{
-							var array = user_helps.slice(dziesiatka*10, i);
-							new Branch(new Vector(center_x, canvas_height), new Vector(Math.random(0, 1), -y_speed), 15 / stretch_factor, Branch.rgba(67, 124, 23, 0.3), t, array);
-							dziesiatka++;
+							var array = user_helps.slice(krotnosc*ile_lisci_na_galaz, i);
+							new Branch(new Vector(center_x, canvas_height), new Vector(Math.random(-1, 1), -y_speed), 15 / stretch_factor, Branch.rgba(122, 27, 163, 0.3), t, array);
+							krotnosc++;
+							console.log("dodaje brancz pomoc");
 						}
 					}
-					var array = user_helps.slice(dziesiatka*10);
+					var array = user_helps.slice(krotnosc*ile_lisci_na_galaz);
 					///Koncowka
-					new Branch(new Vector(center_x, canvas_height), new Vector(Math.random(0, 1), -y_speed), 15 / stretch_factor, Branch.rgba(67, 124, 23, 0.3), t, array);
+					new Branch(new Vector(center_x, canvas_height), new Vector(Math.random(-1, 1), -y_speed), 15 / stretch_factor, Branch.rgba(67, 124, 23, 0.3), t, array);
 				}	
 				
 				
