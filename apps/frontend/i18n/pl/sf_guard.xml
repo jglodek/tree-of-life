@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.0">
+  <file source-language="EN" target-language="pl" datatype="plaintext" original="messages" date="2011-12-04T13:39:31Z" product-name="messages">
+    <header/>
+    <body>
+      <trans-unit id="1">
+        <source>Oops! The page you asked for is secure and you do not have proper credentials.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>Login below to gain access</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>Signin</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>Forgot your password?</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="5">
+        <source>Want to register?</source>
+        <target>Przejdź do rejestracji</target>
+      </trans-unit>
+      <trans-unit id="6">
+        <source>Hello %name%</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="7">
+        <source>Enter your new password in the form below.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="8">
+        <source>Change</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="9">
+        <source>Do not worry, we can help you get back in to your account safely!</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="10">
+        <source>Fill out the form below to request an e-mail with information on how to reset your password.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="11">
+        <source>Request</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="12">
+        <source>Hi %first_name%</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="13">
+        <source>Below you will your username and new password:</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="14">
+        <source>Username</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="15">
+        <source>Password</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="16">
+        <source>This e-mail is being sent because you requested information on how to reset your password.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="17">
+        <source>You can change your password by clicking the below link which is only valid for 24 hours:</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="18">
+        <source>Click to change password</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="19">
+        <source>Register</source>
+        <target/>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
