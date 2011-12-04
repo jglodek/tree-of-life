@@ -1,4 +1,4 @@
-Plik który próbuje etłumaczyć co jest co:
+Plik który próbuje tłumaczyć co jest co:
 
 Rysowanie drzewa robił Jacek Głodek:
 
@@ -14,3 +14,16 @@ Co trzeba zrobić:
 - rozdzielić skrypty, style i htmla od siebię.
 
 
+## Panel zarządzania (backend), struktura strony Konrad Podgórski:
+- brakuje w tym momencie zabezpieczenia backendu, na czas pracy jest to wygodniejsze
+
+### frontend co mamy
+/login 
+/register
+/need
+/help
+
+### backend
+/need
+/help
+/category
